@@ -70,11 +70,9 @@ const Project = ({project, mutate, canEdit}:
                 </a>
             </div> */}
             <div className="group relative">
-                <h3 className="mt-2 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                <a href={project.website_url}>
+                <h3 className="mt-2 text-lg font-semibold leading-6 text-gray-900">
                     <span className="absolute inset-0" />
                     {project.name}
-                </a>
                 </h3>
                 <p className="mt-2 line-clamp-3 text-sm leading-6 text-gray-600">{project.description}</p>
             </div>
