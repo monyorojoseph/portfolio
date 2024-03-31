@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
+from django_lifecycle import LifecycleModelMixin, hook, AFTER_CREATE
 
 
 class UserManager(BaseUserManager):
@@ -54,13 +55,23 @@ class User(AbstractBaseUser):
         return self.is_admin
 
 # projects
-class Project(models.Model):
+class Project(LifecycleModelMixin, models.Model):
     author = models.ForeignKey("User", on_delete=models.CASCADE, related_name="projects")
     name = models.CharField(max_length=200)
     description = models.TextField()
     github_url = models.URLField()
     website_url = models.URLField(null=True, blank=True)
     image = models.ImageField(upload_to="projects", null=True)
+    slug = models.CharField(max_length=100, null=True)
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+     
+    def __str__(self) -> str:
+        return self.name
+    
+    @hook(AFTER_CREATE)
+    def create_slug(self):
+        slug = f"{self.name}-{self.id}"
+        self.slug = slug
+        self.save()
