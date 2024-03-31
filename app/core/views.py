@@ -28,8 +28,10 @@ def logout(request, data: LogoutShema):
 class ProjectAPI:
     # list
     @route.get("list", response={200: List[ProjectSchema], codes_4xx: DetailShema})
-    def projects(self, request):
+    def projects(self, request, draft: bool):
         queryset = Project.objects.all()
+        if not draft:
+            queryset = queryset.filter(draft=False)
         return queryset
     
     # get 
@@ -40,9 +42,8 @@ class ProjectAPI:
     
     # create 
     @route.post("create", auth=JWTAuth(), response={ 200: ProjectSchema, codes_4xx: DetailShema})
-    def create(self, request, data: CreateProjectSchema, image: UploadedFile = File(...) ):
-        project = Project(**data, author=request.user)
-        project.image.save(image.name, image)
+    def create(self, request, data: CreateProjectSchema):
+        project = Project.objects.create(**data.dict(), author=request.user)
         return project
     
     # update
@@ -53,6 +54,7 @@ class ProjectAPI:
             setattr(project, attr, value)
         project.save()
         return project
+
     
     # delete
     @route.delete("delete/{str:slug}",  auth=JWTAuth(), response={ 200: DetailShema, codes_4xx: DetailShema })

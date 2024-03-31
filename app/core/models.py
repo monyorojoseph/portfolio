@@ -61,8 +61,8 @@ class Project(LifecycleModelMixin, models.Model):
     description = models.TextField()
     github_url = models.URLField()
     website_url = models.URLField(null=True, blank=True)
-    image = models.ImageField(upload_to="projects", null=True)
     slug = models.CharField(max_length=100, null=True)
+    draft = models.BooleanField(default=True)
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -72,6 +72,6 @@ class Project(LifecycleModelMixin, models.Model):
     
     @hook(AFTER_CREATE)
     def create_slug(self):
-        slug = f"{self.name}-{self.id}"
+        slug = f"{self.name.join('-')}-{self.id}"
         self.slug = slug
         self.save()
