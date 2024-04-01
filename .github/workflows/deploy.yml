@@ -38,13 +38,14 @@ jobs:
           run: |
                 python -m pip install --upgrade pip
                 pip install .
-
-        - name: Run Migrations and Tests
+                
+        - working-directory: "app"
+          name: Run Migrations and Tests
           run: |
                 python manage.py migrate
                 python manage.py test
-
-        - name: Run Server and Quit
+        - working-directory: "app"
+          name: Run Server and Quit
           run: python manage.py runserver &
 
   App-Build:
