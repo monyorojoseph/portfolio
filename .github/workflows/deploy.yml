@@ -44,7 +44,7 @@ jobs:
           run: |
                 python manage.py migrate
                 python manage.py test
-                
+
         - working-directory: "app"
           name: Run Server and Quit
           run: python manage.py runserver &
