@@ -22,7 +22,7 @@ jobs:
 
             - name: Install Packages and Build
               working-directory: web
-              run: npm install && npm run build
+              run: npm install --legacy-peer-deps && npm run build
 
     build:
         runs-on: ubuntu-latest

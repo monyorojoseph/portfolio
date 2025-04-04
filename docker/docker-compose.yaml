@@ -1,5 +1,5 @@
 services:
   portfolio-web:
-    image: portfolio-web
+    image: monyorojoseph/portfolio-web:latest
     ports:
       - "3000:80"
