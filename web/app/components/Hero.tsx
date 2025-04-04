@@ -5,7 +5,8 @@ import { Github as GitHub, Linkedin, Mail, ArrowDown } from "lucide-react"
 import { motion } from "framer-motion"
 
 const CodePattern = () => (
-  <svg className="absolute inset-0 w-full h-full opacity-5" xmlns="http://www.w3.org/2000/svg">
+  <svg className="absolute inset-0 w-full h-full opacity-5" 
+    xmlns="http://www.w3.org/2000/svg">
     <pattern
       id="pattern-circles"
       x="0"
@@ -13,8 +14,7 @@ const CodePattern = () => (
       width="50"
       height="50"
       patternUnits="userSpaceOnUse"
-      patternContentUnits="userSpaceOnUse"
-    >
+      patternContentUnits="userSpaceOnUse">
       <circle id="pattern-circle" cx="10" cy="10" r="1.6257413380501518" fill="#000"></circle>
     </pattern>
     <rect id="rect" x="0" y="0" width="100%" height="100%" fill="url(#pattern-circles)"></rect>
@@ -25,8 +25,8 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="min-h-screen relative overflow-hidden bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-900 dark:via-indigo-900 dark:to-purple-900"
-    >
+      className="min-h-screen relative overflow-hidden bg-gradient-to-br from-blue-50 
+      via-indigo-50 to-purple-50 dark:from-gray-900 dark:via-indigo-900 dark:to-purple-900">
       {/* Programming-themed Background */}
       <div className="absolute inset-0 z-0">
         <CodePattern />
@@ -49,10 +49,10 @@ export default function Hero() {
               Joseph Monyoro
             </h1>
             <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-gray-700 dark:text-gray-300">
-              Software Engineer
+              Software Developer
             </h2>
             <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto lg:mx-0">
-              I'm a software engineer who builds web applications using Python, Django, TypeScript and Next.js. 
+              I'm a software developer who builds web applications using Python, Django, TypeScript and Next.js. 
               I have experience working with Azure Cloud and enjoy creating useful solutions for real problems.
             </p>
             <div className="flex justify-center lg:justify-start space-x-4 mb-8">

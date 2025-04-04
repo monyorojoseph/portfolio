@@ -10,7 +10,7 @@ export default function About() {
     { icon: <Server className="w-8 h-8 text-green-500" />, title: "Backend", description: "Python, Django, FastAPI" },
     { icon: <Database className="w-8 h-8 text-purple-500" />, title: "Database", description: "PostgreSQL, MySQL, Supabase" },
     // { icon: <Zap className="w-8 h-8 text-yellow-500" />, title: "Performance", description: "Optimization, Caching" },
-    { icon: <Cloud className="w-8 h-8 text-blue-500" />, title: "Cloud", description: "Azure, Kubernetes, Docker" },
+    { icon: <Cloud className="w-8 h-8 text-blue-500" />, title: "Cloud", description: "Azure" },
   ]
 
   return (

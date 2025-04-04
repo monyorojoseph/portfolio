@@ -36,6 +36,7 @@ export default function Contact() {
       // Here you would typically send the form data to your backend
       await new Promise((resolve) => setTimeout(resolve, 1000)) // Simulate API call
       setSubmitSuccess(true)
+      console.log({ data })
       reset()
       setTimeout(() => setSubmitSuccess(false), 3000)
     } catch (error) {
@@ -60,9 +61,10 @@ export default function Contact() {
         >
           Get in Touch
         </motion.h2>
-        <div className="flex flex-col lg:flex-row gap-12">
+        <div className="flex flex-col justify-center lg:flex-row gap-12">
           <motion.div
-            className="lg:w-1/3"
+            // className="lg:w-1/3"
+            className="w-full md:w-1/3"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -92,7 +94,7 @@ export default function Contact() {
               </div>
             </div>
           </motion.div>
-          <motion.div
+          {/* <motion.div
             className="lg:w-2/3"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -172,7 +174,7 @@ export default function Contact() {
                 </div>
               )}
             </form>
-          </motion.div>
+          </motion.div> */}
         </div>
       </div>
       <div className="absolute bottom-0 right-0 w-64 h-64 -mb-32 -mr-32 opacity-20">

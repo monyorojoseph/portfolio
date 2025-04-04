@@ -50,7 +50,7 @@ const skills = [
   {
     icon: Cloud,
     name: "Cloud",
-    tech: "Azure, Digital Ocean, Kubernetes, Docker",
+    tech: "Azure, Digital Ocean, Docker",
     description: "Architecting and managing cloud infrastructure using containerization and orchestration for scalable deployments.",
     color: "text-yellow-500",
   },
